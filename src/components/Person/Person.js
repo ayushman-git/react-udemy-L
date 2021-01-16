@@ -1,5 +1,5 @@
 const person = () => {
-  return <p>Sub-component</p>
+  return <p><strong>Random Number:</strong> {Math.floor(Math.random() * 100)}</p>
 }
 
 export default person;
