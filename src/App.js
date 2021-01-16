@@ -1,23 +1,27 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
 
+import Person from "./components/Person/Person";
+
 class App extends Component {
   render() {
-    return React.createElement(
-      "div",
-      {
-        className: "App"
-      },
-      React.createElement("h2", null, "Using createElement")
+    return (
+      <div className="App">
+        <h1>Hello</h1>
+        <Person />
+      </div>
     );
-    // return (
-    //   <div className="App">
-    //     <h1>Hello</h1>
-    //   </div>
-    // );
   }
 }
+
+//non-JSX syntax
+// return React.createElement(
+//   "div",
+//   {
+//     className: "App"
+//   },
+//   React.createElement("h2", null, "Using createElement")
+// );
 
 // function App() {
 //   return (
