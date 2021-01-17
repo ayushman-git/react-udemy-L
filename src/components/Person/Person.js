@@ -1,10 +1,9 @@
 const person = (props) => {
-  console.log(props);
   return (
-    <p>
+    <div>
       <strong>Random {props.title}:</strong> {Math.floor(Math.random() * 100)}
       <p>{props.children}</p>
-    </p>
+    </div>
   );
 };
 
