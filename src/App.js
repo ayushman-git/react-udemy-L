@@ -21,11 +21,30 @@ class App extends Component {
     ],
   };
 
+  nameHandler = () => {
+    this.setState({
+      person: [
+        {
+          name: "Ayushman",
+          age: 22,
+        },
+        {
+          name: "XenOn",
+          age: 21,
+        },
+        {
+          name: "Purge",
+          age: 24,
+        },
+      ],
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Hello</h1>
-        <button>Click</button>
+        <button onClick={this.nameHandler}>Click</button>
         <Person title={this.state.person[0].name} />
         <Person title={this.state.person[1].name}>Children prop</Person>
         <Person title={this.state.person[2].name} />
