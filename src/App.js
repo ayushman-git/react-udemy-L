@@ -25,7 +25,7 @@ class App extends Component {
     this.setState({
       person: [
         {
-          name: "Ayushman",
+          name: "Isaac",
           age: 22,
         },
         {
@@ -46,7 +46,9 @@ class App extends Component {
         <h1>Hello</h1>
         <button onClick={this.nameHandler}>Click</button>
         <Person title={this.state.person[0].name} />
-        <Person title={this.state.person[1].name}>Children prop</Person>
+        <Person title={this.state.person[1].name} click={this.nameHandler}>
+          Children prop
+        </Person>
         <Person title={this.state.person[2].name} />
       </div>
     );

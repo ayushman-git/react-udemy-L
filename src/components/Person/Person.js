@@ -4,11 +4,15 @@ const Person = (props) => {
   const [ageState, setAgeState] = useState({
     age: 30,
   });
+
   const clickHandler = () => {
-    console.log("Clicked");
+    setAgeState({
+      age: Math.floor(Math.random() * 20),
+    });
   };
+
   return (
-    <div>
+    <div onClick={props.click}>
       <strong>Random {props.title}:</strong> {Math.floor(Math.random() * 100)}
       <p>Age: {ageState.age}</p>
       <button onClick={clickHandler}>Click</button>
