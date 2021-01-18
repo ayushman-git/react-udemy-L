@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   nameHandler = (arg) => {
-    console.log(arg)
+    console.log(arg);
     this.setState({
       person: [
         {
@@ -31,6 +31,26 @@ class App extends Component {
         },
         {
           name: "XenOn",
+          age: 21,
+        },
+        {
+          name: "Purge",
+          age: 24,
+        },
+      ],
+    });
+  };
+
+  changeNameInput = (e) => {
+    console.log(e);
+    this.setState({
+      person: [
+        {
+          name: "Ayushman",
+          age: 22,
+        },
+        {
+          name: e.target.value,
           age: 21,
         },
         {
@@ -50,6 +70,7 @@ class App extends Component {
         <Person
           title={this.state.person[1].name}
           click={this.nameHandler.bind(this, "Argument")}
+          changed={this.changeNameInput}
         >
           Children prop
         </Person>
