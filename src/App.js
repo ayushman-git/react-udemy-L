@@ -21,11 +21,12 @@ class App extends Component {
     ],
   };
 
-  nameHandler = () => {
+  nameHandler = (arg) => {
+    console.log(arg)
     this.setState({
       person: [
         {
-          name: "Isaac",
+          name: arg ? arg : "Ayush",
           age: 22,
         },
         {
@@ -44,9 +45,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hello</h1>
-        <button onClick={this.nameHandler}>Click</button>
+        <button onClick={() => this.nameHandler("Hello")}>Click</button>
         <Person title={this.state.person[0].name} />
-        <Person title={this.state.person[1].name} click={this.nameHandler}>
+        <Person
+          title={this.state.person[1].name}
+          click={this.nameHandler.bind(this, "Argument")}
+        >
           Children prop
         </Person>
         <Person title={this.state.person[2].name} />
