@@ -69,11 +69,29 @@ class App extends Component {
   };
 
   render() {
+    let person = null;
+    if (this.state.showPerson) {
+      person = (
+        <div>
+          <Person title={this.state.person[0].name} />
+          <Person
+            title={this.state.person[1].name}
+            click={this.nameHandler.bind(this, "Argument")}
+            changed={this.changeNameInput}
+          >
+            Children prop
+          </Person>
+          <Person title={this.state.person[2].name} />
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>Hello</h1>
         <button onClick={this.togglePerson}>Click</button>
-        {this.state.showPerson ? (
+        {person}
+        {/* {this.state.showPerson ? (
           <div>
             <Person title={this.state.person[0].name} />
             <Person
@@ -85,7 +103,7 @@ class App extends Component {
             </Person>
             <Person title={this.state.person[2].name} />
           </div>
-        ) : null}
+        ) : null} */}
       </div>
     );
   }
