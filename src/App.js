@@ -63,7 +63,7 @@ class App extends Component {
   // };
 
   delete = (index) => {
-    const person = this.state.person;
+    const person = [...this.state.person];
     person.splice(index, 1);
     this.setState({ person: person });
   };
