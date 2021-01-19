@@ -79,7 +79,7 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className={this.state.showPerson ? "AppPerson" : "App"}>
         <h1>Hello</h1>
         <button style={style} onClick={this.togglePerson}>
           Click
