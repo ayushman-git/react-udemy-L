@@ -26,6 +26,7 @@ const Person = (props) => {
       <strong onClick={props.click}>Random {props.title}:</strong>{" "}
       {Math.floor(Math.random() * 100)}
       <p>Age: {ageState.age}</p>
+      <input type="text" onChange={props.change} />
       <button style={buttonStyle} onClick={clickHandler}>
         Click
       </button>

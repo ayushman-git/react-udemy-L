@@ -7,14 +7,17 @@ class App extends Component {
   state = {
     person: [
       {
+        id: "asdasda",
         name: "Ayushman",
         age: 22,
       },
       {
+        id: "ASdwadsd",
         name: "XenOn",
         age: 21,
       },
       {
+        id: "gawdsdasd",
         name: "Duoro",
         age: 20,
       },
@@ -42,25 +45,17 @@ class App extends Component {
   //   });
   // };
 
-  // changeNameInput = (e) => {
-  //   console.log(e);
-  //   this.setState({
-  //     person: [
-  //       {
-  //         name: "Ayushman",
-  //         age: 22,
-  //       },
-  //       {
-  //         name: e.target.value,
-  //         age: 21,
-  //       },
-  //       {
-  //         name: "Purge",
-  //         age: 24,
-  //       },
-  //     ],
-  //   });
-  // };
+  changeNameInput = (e, id) => {
+    const personIndex = this.state.person.findIndex((el) => el.id === id);
+    const person = {
+      ...this.state.person[personIndex],
+    };
+    person.name = e.target.value;
+    const persons = [...this.state.person];
+    persons[personIndex] = person;
+    console.log(persons);
+    this.setState({ person: persons });
+  };
 
   delete = (index) => {
     const person = [...this.state.person];
@@ -82,9 +77,10 @@ class App extends Component {
           {this.state.person.map((person, index) => {
             return (
               <Person
-                key={index}
+                key={person.id}
                 title={person.name}
                 click={() => this.delete(index)}
+                change={(event) => this.changeNameInput(event, person.id)}
               />
             );
           })}
