@@ -19,6 +19,7 @@ class App extends Component {
         age: 20,
       },
     ],
+    showPerson: false,
   };
 
   nameHandler = (arg) => {
@@ -61,20 +62,30 @@ class App extends Component {
     });
   };
 
+  togglePerson = () => {
+    this.setState({
+      showPerson: !this.state.showPerson,
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Hello</h1>
-        <button onClick={() => this.nameHandler("Hello")}>Click</button>
-        <Person title={this.state.person[0].name} />
-        <Person
-          title={this.state.person[1].name}
-          click={this.nameHandler.bind(this, "Argument")}
-          changed={this.changeNameInput}
-        >
-          Children prop
-        </Person>
-        <Person title={this.state.person[2].name} />
+        <button onClick={this.togglePerson}>Click</button>
+        {this.state.showPerson ? (
+          <div>
+            <Person title={this.state.person[0].name} />
+            <Person
+              title={this.state.person[1].name}
+              click={this.nameHandler.bind(this, "Argument")}
+              changed={this.changeNameInput}
+            >
+              Children prop
+            </Person>
+            <Person title={this.state.person[2].name} />
+          </div>
+        ) : null}
       </div>
     );
   }
