@@ -18,14 +18,14 @@ const Person = (props) => {
     backgroundColor: "black",
     color: "white",
     outline: "none",
-    border: "none"
+    border: "none",
   };
 
   return (
-    <div onClick={props.click} className="Person">
-      <strong>Random {props.title}:</strong> {Math.floor(Math.random() * 100)}
+    <div className="Person">
+      <strong onClick={props.click}>Random {props.title}:</strong>{" "}
+      {Math.floor(Math.random() * 100)}
       <p>Age: {ageState.age}</p>
-      <input type="text" onChange={props.changed} value={props.title} />
       <button style={buttonStyle} onClick={clickHandler}>
         Click
       </button>

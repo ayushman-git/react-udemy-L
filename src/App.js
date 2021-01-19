@@ -22,44 +22,50 @@ class App extends Component {
     showPerson: false,
   };
 
-  nameHandler = (arg) => {
-    console.log(arg);
-    this.setState({
-      person: [
-        {
-          name: arg ? arg : "Ayush",
-          age: 22,
-        },
-        {
-          name: "XenOn",
-          age: 21,
-        },
-        {
-          name: "Purge",
-          age: 24,
-        },
-      ],
-    });
-  };
+  // nameHandler = (arg) => {
+  //   console.log(arg);
+  //   this.setState({
+  //     person: [
+  //       {
+  //         name: arg ? arg : "Ayush",
+  //         age: 22,
+  //       },
+  //       {
+  //         name: "XenOn",
+  //         age: 21,
+  //       },
+  //       {
+  //         name: "Purge",
+  //         age: 24,
+  //       },
+  //     ],
+  //   });
+  // };
 
-  changeNameInput = (e) => {
-    console.log(e);
-    this.setState({
-      person: [
-        {
-          name: "Ayushman",
-          age: 22,
-        },
-        {
-          name: e.target.value,
-          age: 21,
-        },
-        {
-          name: "Purge",
-          age: 24,
-        },
-      ],
-    });
+  // changeNameInput = (e) => {
+  //   console.log(e);
+  //   this.setState({
+  //     person: [
+  //       {
+  //         name: "Ayushman",
+  //         age: 22,
+  //       },
+  //       {
+  //         name: e.target.value,
+  //         age: 21,
+  //       },
+  //       {
+  //         name: "Purge",
+  //         age: 24,
+  //       },
+  //     ],
+  //   });
+  // };
+
+  delete = (index) => {
+    const person = this.state.person;
+    person.splice(index, 1);
+    this.setState({ person: person });
   };
 
   togglePerson = () => {
@@ -73,12 +79,12 @@ class App extends Component {
     if (this.state.showPerson) {
       person = (
         <div>
-          {this.state.person.map((person) => {
+          {this.state.person.map((person, index) => {
             return (
               <Person
+                key={index}
                 title={person.name}
-                changed={this.changeNameInput}
-                click={this.nameHandler.bind(this, "Argument")}
+                click={() => this.delete(index)}
               />
             );
           })}
