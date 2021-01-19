@@ -73,7 +73,16 @@ class App extends Component {
     if (this.state.showPerson) {
       person = (
         <div>
-          <Person title={this.state.person[0].name} />
+          {this.state.person.map((person) => {
+            return (
+              <Person
+                title={person.name}
+                changed={this.changeNameInput}
+                click={this.nameHandler.bind(this, "Argument")}
+              />
+            );
+          })}
+          {/* <Person title={this.state.person[0].name} />
           <Person
             title={this.state.person[1].name}
             click={this.nameHandler.bind(this, "Argument")}
@@ -81,7 +90,7 @@ class App extends Component {
           >
             Children prop
           </Person>
-          <Person title={this.state.person[2].name} />
+          <Person title={this.state.person[2].name} /> */}
         </div>
       );
     }
