@@ -33,6 +33,8 @@ const Person = (props) => {
     },
   };
 
+  throw new Error();
+
   return (
     <div className={styles.Person}>
       <strong onClick={props.click}>Random {props.title}:</strong>{" "}

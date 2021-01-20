@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Radium from "radium";
 
 import Person from "./components/Person/Person";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 class App extends Component {
   state = {
@@ -67,12 +68,13 @@ class App extends Component {
         <div>
           {this.state.person.map((person, index) => {
             return (
-              <Person
-                key={person.id}
-                title={person.name}
-                click={() => this.delete(index)}
-                change={(event) => this.changeNameInput(event, person.id)}
-              />
+              <ErrorBoundary key={person.id}>
+                <Person
+                  title={person.name}
+                  click={() => this.delete(index)}
+                  change={(event) => this.changeNameInput(event, person.id)}
+                />
+              </ErrorBoundary>
             );
           })}
         </div>
