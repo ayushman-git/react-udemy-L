@@ -9,3 +9,19 @@
   font-size: 2em;
   color: rgb(255, 255, 255);
 }
+
+.btn {
+  padding: 1em;
+  margin-left: 2em;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: brown;
+  transition: all 0.6s ease-in-out;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: chartreuse;
+  color: brown;
+}

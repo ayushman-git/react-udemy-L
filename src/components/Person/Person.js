@@ -6,11 +6,16 @@ const Person = (props) => {
   const [ageState, setAgeState] = useState({
     age: 30,
   });
+  const [addClass, setAddClass] = useState(false);
 
   const clickHandler = () => {
     setAgeState({
       age: Math.floor(Math.random() * 20),
     });
+  };
+
+  const classHandler = () => {
+    setAddClass(!addClass);
   };
 
   const buttonStyle = {
@@ -36,6 +41,9 @@ const Person = (props) => {
       <input type="text" onChange={props.change} value={props.title} />
       <button style={buttonStyle} onClick={clickHandler}>
         Click
+      </button>
+      <button onClick={classHandler} className={addClass ? "btn" : null}>
+        Using CSS class
       </button>
       <p>{props.children}</p>
     </div>

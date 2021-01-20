@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
+import Radium from "radium";
 
 import Person from "./components/Person/Person";
 
@@ -59,6 +60,7 @@ class App extends Component {
       outline: "none",
       border: "none",
     };
+
     let person = null;
     if (this.state.showPerson) {
       person = (
@@ -85,39 +87,9 @@ class App extends Component {
           Click
         </button>
         {person}
-        {/* {this.state.showPerson ? (
-          <div>
-            <Person title={this.state.person[0].name} />
-            <Person
-              title={this.state.person[1].name}
-              click={this.nameHandler.bind(this, "Argument")}
-              changed={this.changeNameInput}
-            >
-              Children prop
-            </Person>
-            <Person title={this.state.person[2].name} />
-          </div>
-        ) : null} */}
       </div>
     );
   }
 }
 
-//non-JSX syntax
-// return React.createElement(
-//   "div",
-//   {
-//     className: "App"
-//   },
-//   React.createElement("h2", null, "Using createElement")
-// );
-
-// function App() {
-//   return (
-//     <div className="App">
-//      <h1>Hello</h1>
-//     </div>
-//   );
-// }
-
-export default App;
+export default Radium(App);
