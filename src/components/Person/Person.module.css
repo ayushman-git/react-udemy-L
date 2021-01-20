@@ -25,3 +25,9 @@
   background-color: chartreuse;
   color: brown;
 }
+
+@media (max-width: 800px) {
+  .Person {
+    width: 300px;
+  }
+}
