@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Person.css";
+import styles from "./Person.module.css";
 import Radium from "radium";
 
 const Person = (props) => {
@@ -34,15 +34,15 @@ const Person = (props) => {
   };
 
   return (
-    <div className="Person">
+    <div className={styles.Person}>
       <strong onClick={props.click}>Random {props.title}:</strong>{" "}
       {Math.floor(Math.random() * 100)}
-      <p className="Person-strong">Age: {ageState.age}</p>
+      <p className={styles.para}>Age: {ageState.age}</p>
       <input type="text" onChange={props.change} value={props.title} />
       <button style={buttonStyle} onClick={clickHandler}>
         Click
       </button>
-      <button onClick={classHandler} className={addClass ? "btn" : null}>
+      <button onClick={classHandler} className={addClass ? styles.btn : null}>
         Using CSS class
       </button>
       <p>{props.children}</p>
