@@ -46,7 +46,6 @@ class App extends Component {
     };
     person.name = e.target.value;
     persons[personIndex] = person;
-    console.log(persons);
 
     this.setState({ person: persons });
   };
