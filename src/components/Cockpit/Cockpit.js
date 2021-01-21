@@ -11,8 +11,16 @@ const Cockpit = (props) => {
   };
 
   useEffect(() => {
-    console.log("Cockpit | useEffect");
+    console.log("Cockpit | useEffect | each render");
   });
+
+  useEffect(() => {
+    console.log("Cockpit | useEffect | first render");
+  }, []);
+
+  useEffect(() => {
+    console.log("Cockpit | useEffect | on person update");
+  }, [props.effect]);
 
   if (props.showPerson) {
     style.backgroundColor = "red";

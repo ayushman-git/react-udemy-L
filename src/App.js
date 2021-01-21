@@ -79,6 +79,7 @@ class App extends Component {
       <div className={this.state.showPerson ? "AppPerson" : "App"}>
         <Cockpit
           title="Person List"
+          effect={this.state.person}
           showPerson={this.state.showPerson}
           togglePerson={this.togglePerson}
         />
