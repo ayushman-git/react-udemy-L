@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const Cockpit = (props) => {
   const style = {
     borderRadius: "7px",
@@ -7,6 +9,10 @@ const Cockpit = (props) => {
     outline: "none",
     border: "none",
   };
+
+  useEffect(() => {
+    console.log("Cockpit | useEffect");
+  });
 
   if (props.showPerson) {
     style.backgroundColor = "red";
