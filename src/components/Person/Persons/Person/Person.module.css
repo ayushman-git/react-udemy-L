@@ -5,7 +5,7 @@
   margin: 1em;
 }
 
-.para {
+.para::first-letter {
   font-size: 2em;
   color: rgb(255, 255, 255);
 }

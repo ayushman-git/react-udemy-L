@@ -2,8 +2,8 @@ import "./App.css";
 import React, { Component } from "react";
 import Radium from "radium";
 
-import Person from "./components/Person/Person";
-import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Persons from "./components/Person/Persons/Persons";
+import Cockpit from "./components/Cockpit/Cockpit";
 
 class App extends Component {
   state = {
@@ -53,41 +53,24 @@ class App extends Component {
   };
 
   render() {
-    const style = {
-      borderRadius: "7px",
-      padding: "1em",
-      backgroundColor: "green",
-      color: "white",
-      outline: "none",
-      border: "none",
-    };
-
     let person = null;
     if (this.state.showPerson) {
       person = (
-        <div>
-          {this.state.person.map((person, index) => {
-            return (
-              <ErrorBoundary key={person.id}>
-                <Person
-                  title={person.name}
-                  click={() => this.delete(index)}
-                  change={(event) => this.changeNameInput(event, person.id)}
-                />
-              </ErrorBoundary>
-            );
-          })}
-        </div>
+        <Persons
+          person={this.state.person}
+          delete={this.delete}
+          change={this.changeNameInput}
+        />
       );
-      style.backgroundColor = "red";
     }
 
     return (
       <div className={this.state.showPerson ? "AppPerson" : "App"}>
-        <h1>Hello</h1>
-        <button style={style} onClick={this.togglePerson}>
-          Click
-        </button>
+        <Cockpit
+          title="Person List"
+          showPerson={this.state.showPerson}
+          togglePerson={this.togglePerson}
+        />
         {person}
       </div>
     );

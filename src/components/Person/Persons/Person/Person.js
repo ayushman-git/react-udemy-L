@@ -33,7 +33,7 @@ const Person = (props) => {
     },
   };
 
-  throw new Error();
+  // throw new Error();
 
   return (
     <div className={styles.Person}>
