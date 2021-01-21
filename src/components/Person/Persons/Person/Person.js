@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Person.module.css";
 import Radium from "radium";
 
 const Person = (props) => {
+  useEffect(() => {
+    return () => {
+      console.log("Person.js | useEffect | runs before component unmounts");
+    };
+  });
+
   const [ageState, setAgeState] = useState({
     age: 30,
   });
