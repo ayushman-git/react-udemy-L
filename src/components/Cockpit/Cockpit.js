@@ -11,7 +11,7 @@ const Cockpit = (props) => {
   if (props.showPerson) {
     style.backgroundColor = "red";
   }
-
+  console.log("Cockpit | rendering");
   return (
     <>
       <h1>{props.title}</h1>

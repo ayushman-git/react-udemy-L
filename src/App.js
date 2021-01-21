@@ -6,6 +6,17 @@ import Persons from "./components/Person/Persons/Persons";
 import Cockpit from "./components/Cockpit/Cockpit";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("App.js | Constructor");
+  }
+  static getDerivedStateFromProps(props, state) {
+    console.log("App.js | getDerivedStateFromProps");
+    return state;
+  }
+  componentDidMount() {
+    console.log("App.js | componentDidMount");
+  }
   state = {
     person: [
       {
@@ -53,6 +64,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("App.js | render");
     let person = null;
     if (this.state.showPerson) {
       person = (
