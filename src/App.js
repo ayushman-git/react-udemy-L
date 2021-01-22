@@ -1,9 +1,9 @@
 import "./App.css";
 import React, { Component } from "react";
-import Radium from "radium";
 
 import Persons from "./components/Person/Persons/Persons";
 import Cockpit from "./components/Cockpit/Cockpit";
+import withBorder from "./components/hoc/withBorder";
 
 class App extends Component {
   constructor(props) {
@@ -89,4 +89,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default withBorder(App, 2);
