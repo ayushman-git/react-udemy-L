@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Person.module.css";
 import Radium from "radium";
 
@@ -58,4 +58,4 @@ const Person = (props) => {
   );
 };
 
-export default Radium(Person);
+export default React.memo(Person);
