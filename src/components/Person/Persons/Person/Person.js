@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Person.module.css";
-import Radium from "radium";
+import WithPerson from "../../../hoc/WithPerson";
 
 const Person = (props) => {
   useEffect(() => {
@@ -42,7 +42,7 @@ const Person = (props) => {
   // throw new Error();
 
   return (
-    <div className={styles.Person}>
+    <WithPerson name={styles.Person}>
       <strong onClick={props.click}>Random {props.title}:</strong>{" "}
       {Math.floor(Math.random() * 100)}
       <p className={styles.para}>Age: {ageState.age}</p>
@@ -54,7 +54,7 @@ const Person = (props) => {
         Using CSS class
       </button>
       <p>{props.children}</p>
-    </div>
+    </WithPerson>
   );
 };
 
