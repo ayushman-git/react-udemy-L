@@ -17,6 +17,9 @@ class App extends Component {
   componentDidMount() {
     console.log("App.js | componentDidMount");
   }
+  componentDidUpdate() {
+    console.log(this.state.keyStrokeCounter);
+  }
   state = {
     person: [
       {
@@ -36,6 +39,7 @@ class App extends Component {
       },
     ],
     showPerson: false,
+    keyStrokeCounter: 0,
   };
 
   changeNameInput = (e, id) => {
@@ -47,7 +51,13 @@ class App extends Component {
     person.name = e.target.value;
     persons[personIndex] = person;
 
-    this.setState({ person: persons });
+    //use anonymous function when change state requires previous state
+    this.setState((prevState, prop) => {
+      return {
+        person: persons,
+        keyStrokeCounter: prevState.keyStrokeCounter + 1,
+      };
+    });
   };
 
   delete = (index) => {

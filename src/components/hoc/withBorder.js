@@ -3,11 +3,14 @@ const withBorder = (ChildComponent, padding) => {
     padding: padding + "em",
     border: "10px solid black",
   };
-  return (props) => (
-    <div style={style}>
-      <ChildComponent />
-    </div>
-  );
+  return (props) => {
+    console.log(props);
+    return (
+      <div style={style}>
+        <ChildComponent />
+      </div>
+    );
+  };
 };
 
 export default withBorder;
