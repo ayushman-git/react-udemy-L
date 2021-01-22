@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Auxiliary from "../hoc/Auxiliary";
 
 const Cockpit = (props) => {
   const style = {
@@ -27,12 +28,12 @@ const Cockpit = (props) => {
   }
   console.log("Cockpit | rendering");
   return (
-    <>
+    <Auxiliary>
       <h1>{props.title}</h1>
       <button style={style} onClick={props.togglePerson}>
         Click
       </button>
-    </>
+    </Auxiliary>
   );
 };
 
