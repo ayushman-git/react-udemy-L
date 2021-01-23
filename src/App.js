@@ -19,7 +19,7 @@ class App extends Component {
     console.log("App.js | componentDidMount");
   }
   componentDidUpdate() {
-    console.log(this.personRef);
+    console.log(this.personRef.current);
     console.log(this.state.keyStrokeCounter);
   }
   state = {
