@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Persons from "./components/Person/Persons/Persons";
 import Cockpit from "./components/Cockpit/Cockpit";
 import withBorder from "./components/hoc/withBorder";
+import RandomContext from "./context/randomContext";
 
 class App extends Component {
   constructor(props) {
@@ -42,8 +43,11 @@ class App extends Component {
     ],
     showPerson: false,
     keyStrokeCounter: 0,
+    randomBool: false,
   };
-
+  boolFlip() {
+    this.setState((prevProp) => !prevProp.randomBool);
+  }
   changeNameInput = (e, id) => {
     const personIndex = this.state.person.findIndex((el) => el.id === id);
     const persons = [...this.state.person];
@@ -96,7 +100,11 @@ class App extends Component {
           showPerson={this.state.showPerson}
           togglePerson={this.togglePerson}
         />
-        {person}
+        <RandomContext.Provider
+          value={{ randomBool: this.state.randomBool, boolFlip: this.boolFlip }}
+        >
+          {person}
+        </RandomContext.Provider>
       </div>
     );
   }

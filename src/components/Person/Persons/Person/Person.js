@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Person.module.css";
 import WithPerson from "../../../hoc/WithPerson";
+import RandomContext from "../../../../context/randomContext";
 
 const Person = (props) => {
   const strongRef = useRef();
@@ -45,24 +46,36 @@ const Person = (props) => {
     },
   };
 
+  const contextFunc = () => {
+    console.log("ADAWDf");
+  };
+
   // throw new Error();
 
   return (
-    <WithPerson name={styles.Person}>
-      <strong ref={strongRef} onClick={strongClick}>
-        Random {props.title}:
-      </strong>{" "}
-      {Math.floor(Math.random() * 100)}
-      <p className={styles.para}>Age: {ageState.age}</p>
-      <input type="text" onChange={props.change} value={props.title} />
-      <button style={buttonStyle} onClick={clickHandler}>
-        Click
-      </button>
-      <button onClick={classHandler} className={addClass ? styles.btn : null}>
-        Using CSS class
-      </button>
-      <p>{props.children}</p>
-    </WithPerson>
+    <RandomContext.Consumer>
+      {(context) => (
+        <WithPerson name={styles.Person}>
+          <strong ref={strongRef} onClick={strongClick}>
+            Random {props.title}:
+          </strong>{" "}
+          {Math.floor(Math.random() * 100)}
+          <p className={styles.para}>Age: {ageState.age}</p>
+          <input type="text" onChange={props.change} value={props.title} />
+          <button style={buttonStyle} onClick={clickHandler}>
+            Click
+          </button>
+          <p>{context.randomBool}</p>
+          <button
+            onClick={classHandler}
+            className={addClass ? styles.btn : null}
+          >
+            Using CSS class
+          </button>
+          <p>{props.children}</p>
+        </WithPerson>
+      )}
+    </RandomContext.Consumer>
   );
 };
 
