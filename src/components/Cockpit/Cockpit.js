@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Auxiliary from "../hoc/Auxiliary";
+import PropTypes from "prop-types";
 
 const Cockpit = (props) => {
   const style = {
@@ -35,6 +36,12 @@ const Cockpit = (props) => {
       </button>
     </Auxiliary>
   );
+};
+
+Cockpit.propTypes = {
+  title: PropTypes.string,
+  togglePerson: PropTypes.func,
+  showPerson: PropTypes.bool,
 };
 
 export default Cockpit;
