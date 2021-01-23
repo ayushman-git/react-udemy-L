@@ -8,6 +8,7 @@ import withBorder from "./components/hoc/withBorder";
 class App extends Component {
   constructor(props) {
     super(props);
+    this.personRef = React.createRef();
     console.log("App.js | Constructor");
   }
   static getDerivedStateFromProps(props, state) {
@@ -18,6 +19,7 @@ class App extends Component {
     console.log("App.js | componentDidMount");
   }
   componentDidUpdate() {
+    console.log(this.personRef);
     console.log(this.state.keyStrokeCounter);
   }
   state = {
@@ -78,6 +80,7 @@ class App extends Component {
     if (this.state.showPerson) {
       person = (
         <Persons
+          ref={this.personRef}
           person={this.state.person}
           delete={this.delete}
           change={this.changeNameInput}
